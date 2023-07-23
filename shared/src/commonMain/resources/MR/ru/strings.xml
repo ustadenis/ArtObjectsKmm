@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<resources>
+    // Common
+    <string name="app_name">Ahold Test</string>
+
+    // Art objects screen
+    <string name="items_screen_title">Art objects</string>
+    <string name="items_screen_banner_title">Didnt find anything</string>
+    <string name="items_screen_banner_content">Just relax and wait while something will be added in our database.</string>
+
+</resources>
