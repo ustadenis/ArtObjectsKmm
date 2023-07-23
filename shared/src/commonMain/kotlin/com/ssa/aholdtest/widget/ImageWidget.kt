@@ -36,7 +36,7 @@ fun ImageWidget(
         return
     }
     val resource = asyncPainterResource(Url(url), filterQuality = FilterQuality.None) {
-        coroutineContext = Dispatchers.IO + CoroutineExceptionHandler { _, ex ->
+        coroutineContext += Dispatchers.IO + CoroutineExceptionHandler { _, ex ->
             Napier.e { "Load image error: $ex" }
         }
     }
