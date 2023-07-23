@@ -5,6 +5,6 @@ import com.ssa.aholdtest.details.ArtObjectsDetailsViewModel
 import org.koin.dsl.module
 
 val viewModelModule = module {
-    factory { ItemsViewModel(get()) }
-    factory { ArtObjectsDetailsViewModel(get()) }
+    single { ItemsViewModel(get()) }
+    single { ArtObjectsDetailsViewModel(get()) }
 }
