@@ -6,7 +6,9 @@ import androidx.compose.material.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.FilterQuality
 import androidx.compose.ui.graphics.vector.ImageVector
+import androidx.compose.ui.layout.ContentScale
 import io.github.aakira.napier.Napier
 import io.kamel.core.Resource
 import io.kamel.image.asyncPainterResource
@@ -22,6 +24,7 @@ fun ImageWidget(
     contentDescription: String? = null,
     placeholder: ImageVector? = null,
     errorImage: ImageVector? = null,
+    contentScale: ContentScale = ContentScale.Crop,
     tint: Color = MaterialTheme.colors.secondary
 ) {
     if (url == null) {
@@ -32,7 +35,7 @@ fun ImageWidget(
         )
         return
     }
-    val resource = asyncPainterResource(Url(url)) {
+    val resource = asyncPainterResource(Url(url), filterQuality = FilterQuality.None) {
         coroutineContext = Dispatchers.IO + CoroutineExceptionHandler { _, ex ->
             Napier.e { "Load image error: $ex" }
         }
@@ -49,6 +52,7 @@ fun ImageWidget(
         is Resource.Success -> {
             Image(
                 modifier = modifier,
+                contentScale = contentScale,
                 painter = resource.value,
                 contentDescription = contentDescription
             )

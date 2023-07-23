@@ -4,8 +4,17 @@
     <string name="app_name">Ahold Test</string>
 
     // Art objects screen
-    <string name="items_screen_title">Art objects</string>
-    <string name="items_screen_banner_title">Didnt find anything</string>
-    <string name="items_screen_banner_content">Just relax and wait while something will be added in our database.</string>
+    <string name="items_screen_title">Art objects</string>>
+    <string name="items_screen_banner_title">Did not find anything</string>
+    <string name="items_screen_banner_content">Just relax and wait while something will be added in
+        our database.
+    </string>
 
+    // Art objects details screen
+    <string name="art_objects_details_title">Art object</string>
+    <string name="art_objects_details_error_title">Something went wrong</string>
+    <string name="art_objects_details_error_content">Just relax and wait while we are trying to fix
+        this issue.
+    </string>
+    <string name="art_objects_details_presenting_date">Presenting date: %s</string>
 </resources>

@@ -1,6 +1,7 @@
 package com.ssa.aholdtest.artobjects
 
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -11,8 +12,8 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material.CircularProgressIndicator
 import androidx.compose.material.Icon
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Scaffold
@@ -28,14 +29,20 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import com.ssa.aholdtest.Res
+import com.ssa.aholdtest.base.Navigation.Screen
 import com.ssa.aholdtest.common.onSurfaceLight
 import com.ssa.aholdtest.extension.koinViewModel
 import com.ssa.aholdtest.widget.AppBar
 import com.ssa.aholdtest.widget.ImageWidget
 import com.ssa.aholdtest.widget.InfoBanner
+import com.ssa.aholdtest.widget.LoadingProgress
 import com.ssa.domain.model.ArtObjectsItem
 import dev.icerock.moko.resources.compose.stringResource
+import ru.alexgladkov.odyssey.compose.extensions.push
+import ru.alexgladkov.odyssey.compose.local.LocalRootController
 
+// Implementation was splitted because of the compose pagination lib which doesn't have implementation for iOS.
+// It is possible to make one solution for both platform if use own pagination implementation as on the iOS side now.
 @Composable
 expect fun PaginatedList(
     modifier: Modifier,
@@ -99,33 +106,26 @@ private fun EmptyListWarning() {
 }
 
 @Composable
-private fun LoadingProgress() {
-    Box(
-        modifier = Modifier.fillMaxSize()
-            .padding(vertical = 8.dp, horizontal = 24.dp)
-    ) {
-        CircularProgressIndicator(
-            modifier = Modifier.size(24.dp).align(Alignment.Center)
-        )
-    }
-}
-
-@Composable
 private fun CategoryItem(
     item: ArtObjectsItem,
 ) {
+    val rootController = LocalRootController.current
     Box(
         modifier = Modifier.fillMaxWidth()
             .clip(RoundedCornerShape(16.dp))
-            .background(MaterialTheme.colors.surface),
+            .background(MaterialTheme.colors.surface)
+            .clickable {
+                rootController.push(Screen.ArtObjectDetails.route, item.objectNumber)
+            },
         contentAlignment = Alignment.CenterStart
     ) {
         Row(
             modifier = Modifier.fillMaxWidth()
                 .padding(16.dp)
         ) {
+            // Quite low performance because of the high resolution of source image.
             ImageWidget(
-                modifier = Modifier.size(40.dp).clip(RoundedCornerShape(16.dp)),
+                modifier = Modifier.size(40.dp).clip(CircleShape),
                 placeholder = Icons.Filled.Star,
                 url = item.webImage?.url
             )

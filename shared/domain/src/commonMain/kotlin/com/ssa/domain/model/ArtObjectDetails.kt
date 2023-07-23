@@ -1,15 +1,20 @@
 package com.ssa.domain.model
 
+import kotlinx.serialization.Serializable
+
+@Serializable
 data class ArtObjectDetails(
     val artObject: ArtObject?,
     val elapsedMilliseconds: Int? = 0
 )
 
+@Serializable
 data class NormalizedColorsItem(
     val percentage: Int? = 0,
     val hex: String? = ""
 )
 
+@Serializable
 data class PrincipalMakersItem(
     val placeOfBirth: String? = "",
     val occupation: List<String>?,
@@ -27,6 +32,7 @@ data class PrincipalMakersItem(
     val dateOfBirthPrecision: String? = null
 )
 
+@Serializable
 data class Label(
     val date: String? = "",
     val notes: String? = "",
@@ -35,12 +41,14 @@ data class Label(
     val makerLine: String? = ""
 )
 
+@Serializable
 data class Acquisition(
     val date: String? = "",
     val method: String? = "",
     val creditLine: String? = ""
 )
 
+@Serializable
 data class DimensionsItem(
     val unit: String? = "",
     val part: String? = "",
@@ -48,20 +56,25 @@ data class DimensionsItem(
     val value: String? = ""
 )
 
+@Serializable
 data class ColorsItem(
     val percentage: Int? = 0,
     val hex: String? = ""
 )
 
+@Serializable
 data class Classification(val iconClassIdentifier: List<String>?)
 
+@Serializable
 data class SearchLinks(val search: String? = "")
 
+@Serializable
 data class ColorsWithNormalizationItem(
     val normalizedHex: String? = "",
     val originalHex: String? = ""
 )
 
+@Serializable
 data class ArtObject(
     val scLabelLine: String? = "",
     val principalOrFirstMaker: String? = "",
@@ -103,6 +116,7 @@ data class ArtObject(
     val longTitle: String? = ""
 )
 
+@Serializable
 data class Dating(
     val period: Int? = 0,
     val sortingDate: Int? = 0,

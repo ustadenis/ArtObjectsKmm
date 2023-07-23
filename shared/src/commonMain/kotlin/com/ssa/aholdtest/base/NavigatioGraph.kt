@@ -6,5 +6,6 @@ import ru.alexgladkov.odyssey.compose.navigation.RootComposeBuilder
 
 fun RootComposeBuilder.navigationGraph() {
     scopedScreen(Screen.ListItems.route, Screen.ListItems.content)
+    scopedScreen(Screen.ArtObjectDetails.route, Screen.ArtObjectDetails.content)
 }
 

@@ -2,6 +2,7 @@ package com.ssa.aholdtest.base
 
 import androidx.compose.runtime.Composable
 import com.ssa.aholdtest.artobjects.ItemsScreen
+import com.ssa.aholdtest.details.ArtObjectsDetailsScreen
 import ru.alexgladkov.odyssey.compose.RenderWithParams
 
 sealed interface Navigation {
@@ -16,6 +17,13 @@ sealed interface Navigation {
             override val content: RenderWithParams<Any?>
                 get() = @Composable {
                     ItemsScreen()
+                }
+        }
+
+        object ArtObjectDetails : Screen("artObjectsDetails") {
+            override val content: RenderWithParams<Any?>
+                get() = @Composable {
+                    ArtObjectsDetailsScreen(it as String)
                 }
         }
     }

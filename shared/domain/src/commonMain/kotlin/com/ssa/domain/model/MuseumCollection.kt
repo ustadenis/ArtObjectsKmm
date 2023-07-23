@@ -17,12 +17,12 @@ data class ArtObjectsItem(
     val objectNumber: String,
     val productionPlaces: List<String>?,
     val links: Links?,
-    val hasImage: Boolean,
-    val showImage: Boolean,
-    val id: String,
+    val hasImage: Boolean?,
+    val showImage: Boolean?,
+    val id: String?,
     val title: String,
     val longTitle: String,
-    val permitDownload: Boolean
+    val permitDownload: Boolean?
 )
 
 @Serializable
@@ -30,7 +30,7 @@ data class WebImage(
     val offsetPercentageY: Int,
     val offsetPercentageX: Int,
     val width: Int,
-    val guid: String,
+    val guid: String?,
     val url: String,
     val height: Int
 )
@@ -43,12 +43,12 @@ data class Links(
 
 @Serializable
 data class HeaderImage(
-    val offsetPercentageY: Int,
-    val offsetPercentageX: Int,
-    val width: Int,
+    val offsetPercentageY: Int?,
+    val offsetPercentageX: Int?,
+    val width: Int?,
     val guid: String?,
-    val url: String,
-    val height: Int
+    val url: String?,
+    val height: Int?
 )
 
 
