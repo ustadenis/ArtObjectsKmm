@@ -11,7 +11,7 @@ class RetrieveArtObjectImagesUseCase(
 
     override suspend fun run(params: Params?): List<LevelsItem> {
         params ?: throw IllegalParamsException
-        return repository.getArtObjectImagesAsync(params.objectId).levels
+        return repository.getArtObjectImages(params.objectId).levels
             ?: emptyList()
     }
 

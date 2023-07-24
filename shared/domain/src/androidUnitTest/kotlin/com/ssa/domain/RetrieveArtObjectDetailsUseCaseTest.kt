@@ -36,13 +36,13 @@ class RetrieveArtObjectDetailsUseCaseTest {
         }
 
         coEvery {
-            repository.getArtObjectDetailsAsync(objectId)
+            repository.getArtObjectDetails(objectId)
         } returns objectDetails
 
         val result = useCase.invoke(params)
 
         coVerify {
-            repository.getArtObjectDetailsAsync(objectId)
+            repository.getArtObjectDetails(objectId)
         }
         assert(result == details)
     }
@@ -63,7 +63,7 @@ class RetrieveArtObjectDetailsUseCaseTest {
         }
 
         coEvery {
-            repository.getArtObjectDetailsAsync(objectId)
+            repository.getArtObjectDetails(objectId)
         } returns objectDetails
 
         useCase.invoke(params)

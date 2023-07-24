@@ -12,7 +12,7 @@ class RetrieveArtObjectDetailsUseCase(
 
     override suspend fun run(params: Params?): ArtObject {
         params ?: throw IllegalParamsException
-        return repository.getArtObjectDetailsAsync(params.objectId).artObject!!
+        return repository.getArtObjectDetails(params.objectId).artObject!!
     }
 
     override fun onError(ex: Exception): Nothing {

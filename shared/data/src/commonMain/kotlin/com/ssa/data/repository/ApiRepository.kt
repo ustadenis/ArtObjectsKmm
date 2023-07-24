@@ -12,19 +12,19 @@ import io.ktor.client.request.get
 
 class ApiRepository(private val httpClient: HttpClient) : IApiRepository {
 
-    override suspend fun getCollectionAsync(page: Int, itemsPerPage: Int): MuseumCollection {
+    override suspend fun getCollection(page: Int, itemsPerPage: Int): MuseumCollection {
         return httpClient.get(
             "$BASE_URL/collection?key=$API_KEY&involvedMaker=Rembrandt+van+Rijn&p=$page&ps=$itemsPerPage&s=artist"
         ).body()
     }
 
-    override suspend fun getArtObjectImagesAsync(objectId: String): Images {
+    override suspend fun getArtObjectImages(objectId: String): Images {
         return httpClient.get(
             "$BASE_URL/collection/$objectId/tiles?key=$API_KEY"
         ).body()
     }
 
-    override suspend fun getArtObjectDetailsAsync(objectId: String): ArtObjectDetails {
+    override suspend fun getArtObjectDetails(objectId: String): ArtObjectDetails {
         return httpClient.get(
             "$BASE_URL/collection/$objectId?key=$API_KEY"
         ).body()

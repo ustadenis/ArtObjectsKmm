@@ -34,7 +34,7 @@ class ApiRepositoryTest {
         val page = 0
         val itemsPerPage = 10
 
-        val result = repository.getCollectionAsync(page, itemsPerPage)
+        val result = repository.getCollection(page, itemsPerPage)
 
         assert(result.artObjects?.size == itemsPerPage)
     }
@@ -43,7 +43,7 @@ class ApiRepositoryTest {
     fun `Test get details api call failed`() = runBlocking {
         val objectId = "asd_Asd"
 
-        repository.getArtObjectDetailsAsync(objectId)
+        repository.getArtObjectDetails(objectId)
 
         Unit
     }
@@ -52,7 +52,7 @@ class ApiRepositoryTest {
     fun `Test get details api call success`() = runBlocking {
         val objectId = "SK-C-5"
 
-        val result = repository.getArtObjectDetailsAsync(objectId)
+        val result = repository.getArtObjectDetails(objectId)
 
         assert(result.artObject != null)
     }
@@ -61,7 +61,7 @@ class ApiRepositoryTest {
     fun `Test get images api call failed`() = runBlocking {
         val objectId = "asd_Asd"
 
-        repository.getArtObjectImagesAsync(objectId)
+        repository.getArtObjectImages(objectId)
 
         Unit
     }

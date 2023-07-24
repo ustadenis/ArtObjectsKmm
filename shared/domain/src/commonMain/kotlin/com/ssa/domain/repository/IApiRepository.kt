@@ -5,9 +5,9 @@ import com.ssa.domain.model.Images
 import com.ssa.domain.model.MuseumCollection
 
 interface IApiRepository {
-    suspend fun getCollectionAsync(page: Int, itemsPerPage: Int = 10): MuseumCollection
+    suspend fun getCollection(page: Int, itemsPerPage: Int = 10): MuseumCollection
 
-    suspend fun getArtObjectImagesAsync(objectId: String): Images
+    suspend fun getArtObjectImages(objectId: String): Images
 
-    suspend fun getArtObjectDetailsAsync(objectId: String): ArtObjectDetails
+    suspend fun getArtObjectDetails(objectId: String): ArtObjectDetails
 }

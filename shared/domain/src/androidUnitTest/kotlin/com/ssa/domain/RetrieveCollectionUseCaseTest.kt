@@ -31,13 +31,13 @@ class RetrieveCollectionUseCaseTest {
         val collection = mockk<MuseumCollection>()
 
         coEvery {
-            repository.getCollectionAsync(page, itemsPerPage)
+            repository.getCollection(page, itemsPerPage)
         } returns collection
 
         val result = useCase.invoke(params)
 
         coVerify {
-            repository.getCollectionAsync(page, itemsPerPage)
+            repository.getCollection(page, itemsPerPage)
         }
         assert(result == collection)
     }

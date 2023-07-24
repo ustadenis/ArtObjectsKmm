@@ -45,7 +45,7 @@ fun ArtObjectsDetailsScreen(
     val viewModel: IArtObjectDetailsViewModel = koinViewModel<ArtObjectsDetailsViewModel>()
     val screenState = viewModel.screenState.collectAsState()
 
-    LaunchedEffect(true) {
+    LaunchedEffect(Unit) {
         viewModel.sendEvent(Event.RetrieveDetails(objectId))
     }
 

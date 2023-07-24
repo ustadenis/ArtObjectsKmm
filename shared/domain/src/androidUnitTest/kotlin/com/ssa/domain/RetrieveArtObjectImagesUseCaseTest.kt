@@ -35,13 +35,13 @@ class RetrieveArtObjectImagesUseCaseTest {
         }
 
         coEvery {
-            repository.getArtObjectImagesAsync(objectId)
+            repository.getArtObjectImages(objectId)
         } returns images
 
         val result = useCase.invoke(params)
 
         coVerify {
-            repository.getArtObjectImagesAsync(objectId)
+            repository.getArtObjectImages(objectId)
         }
         assert(result == levels)
     }

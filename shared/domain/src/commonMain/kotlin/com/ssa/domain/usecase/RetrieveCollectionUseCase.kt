@@ -10,7 +10,7 @@ class RetrieveCollectionUseCase(
 
     override suspend fun run(params: Params?): MuseumCollection {
         params ?: throw IllegalParamsException
-        return repository.getCollectionAsync(params.page, params.itemsPerPage)
+        return repository.getCollection(params.page, params.itemsPerPage)
     }
 
     data class Params(
