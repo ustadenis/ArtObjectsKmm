@@ -63,7 +63,7 @@ https://github.com/icerockdev/moko-resources/tree/master - resources (Strings, C
 
 https://github.com/Kamel-Media/Kamel - Image loader
 
-## Project stracture
+## Project stracture:
 
 Project contains 3 modules:
 - Android application (androidApp gradle module)
@@ -73,6 +73,9 @@ Project contains 3 modules:
 Shared library contains almost all code in this project. Basically it is feature module with can be provided to android and iOS projects independantly.\
 Shared module as feature module is splitted by clean architecture layers (data, domain).\
 Shared, data and domain modules are crossplatform modules and may contain different implementation for the particular platform (PaginatedList as an example).
+
+## Debug build:
+Debug build can be found by the following link: https://drive.google.com/file/d/1v48gSkJhuk4B0QYG9qgSuap20Lnw0F3e/view?usp=sharing
 
 ## Screen shots:
 
