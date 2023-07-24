@@ -45,7 +45,7 @@ Basicaly it is possible to use iOS implementation in common module.
 ## Unit testing
 Unit tests were written for data repository, domain use cases and view models. For now it runs only for android platform because of mockk library.\
 To run tests you can use the following commands in terminal:
-> ./gradlew assemble shared:presentation:testDebug // for viewmodels tests\
+> ./gradlew assemble shared:testDebug // for viewmodels tests\
 > ./gradlew assemble shared:data:testDebug // for repo tests\
 > ./gradlew assemble shared:domain:testDebug // for usecases tests
 
@@ -63,6 +63,18 @@ https://github.com/icerockdev/moko-resources/tree/master - resources (Strings, C
 
 https://github.com/Kamel-Media/Kamel - Image loader
 
+## Project stracture
+
+Project contains 3 modules:
+- Android application (androidApp gradle module)
+- iOS application (xcode project)
+- Shared library (common feature code)
+
+Shared library contains almost all code in this project. Basically it is feature module with can be provided to android and iOS projects independantly.\
+Shared module as feature module is splitted by clean architecture layers (data, domain).\
+Shared, data and domain modules are crossplatform modules and may contain different implementation for the particular platform (PaginatedList as an example).
+
+## Screen shots:
 
 ![Art objects list](https://github.com/ustadenis/ArtObjectsKmm/blob/main/pictures/Screen%20Shot%202023-07-24%20at%2012.14.42%20AM.png)
 ![Art object details](https://github.com/ustadenis/ArtObjectsKmm/blob/main/pictures/Screen%20Shot%202023-07-24%20at%2012.15.39%20AM.png)
